@@ -1,0 +1,11 @@
+My source file contains the essentials to setting up a basic card game. To create a new Card object, pass the contractor a number between 0 and 51, which corresponds with a unique card in a 52 card deck. Each number between 0 and 51 corresponds with a card suit and rank. For example, if a Card is passed a number 8:
+	card = Card(8)
+The accessor function rank() will find the cards rank, ranging from (0-10, J-A) by taking 8 mod 13, which will return 8. The accessor function suit() gets the cards suit (club, spade, diamond, heart), by taking 8 floor 13, which returns 0. Both the ranks and suits of cards are contained in dictionaries outside the class Card, and the accessor functions rank() and suit() return the dictionary key that corresponds to the appropriate value.The parent class Card also has a points method that returns the number of points a card is worth in a regular card game, with face cards returning higher points values as their rank increases and number cards returning 0. The __repr__ method returns a string representation of an instance of a card, while the __lt__ method makes it possible to sort a deck of cards according to their number. 
+
+The second class BlackjackCard is a subclass of Card, only overrides the points system for scoring cards. The function defined outside of BlackjackCard called total() essentially scores your hand of BlackjackCards, telling you if you are over, at, or under 21.
+
+The class Deck inherits the list class, which becomes a list of Cards through the __init__. A deck can be shuffled using the shuffle() method, which uses the Python random module. The method deal() takes in a number as an argument, and returns a hand of that many cards in a list. Restore() takes in a list of cards and appends them to a deck. 
+
+PinochleDeck inherits the class Deck, and overrides the __init__ method in order to create a deck of cards ranging from 9-A with two of each card.
+
+Another function defined outside of a class is the points() method, which take in a list of cards as an argument, creates a new list of the cards' point values, and then returns the sum of the new list. This function utilizes the Python math module. 
